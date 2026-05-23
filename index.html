@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Les Carrés du Duché | Estefanía Tsao Solano</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;1,200;1,300&family=Noto+Serif+JP:wght@300;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --cream: #fff0e9;
+                --brown: #290c07;
+                --brown-warm: #7b271b;
+                --red: #a53625;
+                --green: #357269;
+                --gold: #b18f3e;
+            }
+
+            html,
+            body {
+                min-height: 100%;
+                background: var(--cream);
+            }
+
+            body {
+                font-family: "Jost", sans-serif;
+                color: var(--brown);
+                display: flex;
+                justify-content: center;
+                padding: 5.4rem 1.5rem 6rem;
+            }
+
+            .page {
+                width: 100%;
+                max-width: 560px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            body::before,
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                width: 96px;
+                background-image: url("pattern_repeating_y.png");
+                background-size: 96px 96px;
+                background-repeat: repeat-y;
+                background-position: top center;
+                opacity: 0.7;
+                pointer-events: none;
+                z-index: 0;
+            }
+            body::before {
+                left: 0;
+            }
+            body::after {
+                right: 0;
+            }
+
+            .pattern-stamp {
+                width: 128px;
+                height: 128px;
+                margin-bottom: 1.3rem;
+                border-radius: 2px;
+            }
+
+            .logo {
+                width: min(380px, 90vw);
+                height: auto;
+                display: block;
+            }
+
+            .divider {
+                width: min(340px, 85vw);
+                display: flex;
+                align-items: center;
+                margin: 0.4rem 0;
+            }
+            .divider .line {
+                flex: 1;
+                height: 1px;
+                background: var(--gold);
+            }
+            .divider .dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: var(--gold);
+                flex-shrink: 0;
+            }
+
+            .name {
+                font-family: "Noto Serif JP", serif;
+                font-weight: 700;
+                font-size: clamp(1.2rem, 4.5vw, 1.65rem);
+                letter-spacing: 0.01em;
+                text-align: center;
+                margin-top: 0.1rem;
+            }
+
+            .role {
+                font-family: "Jost", sans-serif;
+                font-weight: 200;
+                font-size: clamp(0.98rem, 3.4vw, 1.25rem);
+                letter-spacing: 0.1em;
+                text-align: center;
+                margin-top: -0.3rem;
+            }
+
+            .contact {
+                margin-top: 0.3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.18rem;
+            }
+
+            .contact .label {
+                font-family: "Jost", sans-serif;
+                font-weight: 300;
+                font-size: clamp(1.02rem, 3vw, 1.2rem);
+                color: var(--brown);
+                letter-spacing: 0.02em;
+            }
+
+            .contact a {
+                font-family: "Jost", sans-serif;
+                font-style: italic;
+                font-weight: 300;
+                font-size: clamp(1.08rem, 3.4vw, 1.32rem);
+                color: var(--brown);
+                text-decoration: none;
+                letter-spacing: 0.02em;
+                border-bottom: 1px solid transparent;
+                transition:
+                    color 0.2s,
+                    border-color 0.2s;
+            }
+            .contact a:hover {
+                color: var(--red);
+                border-bottom-color: var(--red);
+            }
+
+            .contact .website {
+                font-family: "Noto Serif JP", serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: clamp(0.84rem, 2.4vw, 1rem);
+                color: var(--red);
+                letter-spacing: 0.02em;
+            }
+
+            .contact .address {
+                font-style: italic;
+                font-weight: 200;
+                font-size: clamp(0.8rem, 2.2vw, 0.94rem);
+                color: var(--brown);
+            }
+
+            .prose-section {
+                margin-top: 0.8rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .prose {
+                font-family: "Jost", sans-serif;
+                font-weight: 300;
+                font-size: clamp(0.86rem, 2.4vw, 0.92rem);
+                line-height: 1.7;
+                color: var(--brown-warm);
+                text-align: center;
+            }
+
+            .definition {
+                align-self: stretch;
+                border-left: 2px solid var(--gold);
+                padding: 0.5rem 0.8rem 0.5rem 1.1rem;
+            }
+
+            .definition .koku-term {
+                font-family: "Noto Serif JP", sans-serif;
+                font-weight: 600;
+                font-size: clamp(0.82rem, 2.2vw, 0.9rem);
+                color: var(--brown);
+                letter-spacing: 0.05em;
+            }
+
+            .definition .koku-body {
+                font-family: "Noto Serif JP", sans-serif;
+                font-weight: 300;
+                font-size: clamp(0.77rem, 2vw, 0.86rem);
+                line-height: 1.65;
+                margin-top: 0.15rem;
+            }
+
+            @media (max-width: 720px) {
+                body::before,
+                body::after {
+                    display: none;
+                }
+
+                body {
+                    padding: 2.6rem 1rem 4rem;
+                }
+
+                .page {
+                    max-width: 100%;
+                }
+
+                .pattern-stamp {
+                    width: 92px;
+                    height: 92px;
+                }
+
+                .definition {
+                    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .pattern-stamp {
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page">
+            <img
+                class="pattern-stamp"
+                src="image.png"
+                alt="Un motif répétant des carrés contenant des cercles et des rayures."
+                aria-hidden="true"
+            />
+            <img
+                class="logo"
+                src="title.svg"
+                alt="Titre de la page avec le texte « Les carrés du duché. Biscuiterie artisanale. Montcenis 2025 »."
+                style="margin-bottom: 0.8rem"
+            />
+
+            <div class="divider" aria-hidden="true">
+                <span class="dot"></span>
+                <span class="line"></span>
+                <span class="dot"></span>
+            </div>
+
+            <p class="name">Estefanía Tsao Solano</p>
+            <p class="role">Pâtissière &amp; Biscuitière</p>
+
+            <div class="contact">
+                <p class="label">Pour toute commande ou question :</p>
+                <a href="mailto:contact@lescarresduduche.fr"
+                    >contact@lescarresduduche.fr</a
+                >
+                <span class="address">71710 Montcenis</span>
+            </div>
+
+            <div class="divider" aria-hidden="true">
+                <span class="dot"></span>
+                <span class="line"></span>
+                <span class="dot"></span>
+            </div>
+
+            <section class="prose-section">
+                <p class="prose">
+                    Au cœur du Duché de Bourgogne, une biscuitière rêveuse
+                    glisse un souffle d'ailleurs dans les grands classiques
+                    français. Entre terroir et kokumi*, ses biscuits artisanaux
+                    célèbrent la beauté des instants précieux, imparfaits et
+                    délicats, cachés dans les recoins de n'importe quel jour
+                    comme les autres…
+                </p>
+
+                <div class="definition">
+                    <p class="koku-term">*Kokumi &nbsp;コク味</p>
+                    <p class="koku-body">
+                        une richesse discrète, une rondeur en bouche qui
+                        prolonge la saveur et donne envie d'y revenir.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <script>
+            new EventSource("/reload").onmessage = () => location.reload();
+        </script>
+    </body>
+</html>
